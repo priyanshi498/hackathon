@@ -9,6 +9,28 @@ const PODIUM = [
   { place: "3rd", icon: Award, label: "Third Place" },
 ];
 
+const ROUND_1_TEAMS = [
+  "Team Orbit",
+  "Nova Grid",
+  "Code Tide",
+  "Quantum Loop",
+  "Skyframe",
+  "Pulse Stack",
+  "Neon Forge",
+  "Astra Hive",
+];
+
+const ROUND_2_TEAMS = [
+  "Vertex Crew",
+  "Lunar Shift",
+  "Binary Bloom",
+  "Core Relay",
+  "Signal Nest",
+  "Echo Drift",
+  "Flux Foundry",
+  "Mint Circuit",
+];
+
 function PodiumGrid({ announceDate }: { announceDate: string }) {
   return (
     <div className="grid gap-4 sm:grid-cols-3">
@@ -33,6 +55,39 @@ function PodiumGrid({ announceDate }: { announceDate: string }) {
         </Card>
       ))}
     </div>
+  );
+}
+
+function TeamGrid({ teams, announceDate }: { teams: string[]; announceDate: string }) {
+  return (
+    <Card className="border-border/60 bg-card/60 p-4 backdrop-blur sm:p-6">
+      <div className="flex flex-col gap-2 border-b border-border/60 pb-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            Shortlisted teams
+          </div>
+          <div className="mt-1 text-sm text-muted-foreground">
+            Compact view for rounds with many selections.
+          </div>
+        </div>
+        <div className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-primary/80">
+          <Sparkles className="h-3 w-3" /> {announceDate}
+        </div>
+      </div>
+
+      <div className="mt-4 max-h-72 overflow-y-auto pr-1 sm:max-h-80">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {teams.map((team) => (
+            <div
+              key={team}
+              className="rounded-2xl border border-border/60 bg-background/70 px-4 py-3 text-sm font-medium text-foreground shadow-sm"
+            >
+              {team}
+            </div>
+          ))}
+        </div>
+      </div>
+    </Card>
   );
 }
 
@@ -79,9 +134,9 @@ export function Results() {
                 Announces 8 Aug
               </span>
             </div>
-            <PodiumGrid announceDate="8 Aug" />
+            <TeamGrid teams={ROUND_1_TEAMS} announceDate="8 Aug" />
             <p className="mt-6 text-center text-sm text-muted-foreground">
-              Awaiting announcement. Shortlisted teams will be notified by email and listed here.
+              Awaiting announcement. Shortlisted teams will be listed here in a compact grid.
             </p>
           </TabsContent>
 
@@ -92,9 +147,9 @@ export function Results() {
                 Announces 20 Aug
               </span>
             </div>
-            <PodiumGrid announceDate="20 Aug" />
+            <TeamGrid teams={ROUND_2_TEAMS} announceDate="20 Aug" />
             <p className="mt-6 text-center text-sm text-muted-foreground">
-              Awaiting announcement. Finalists head into the closing round on 29 Aug.
+              Awaiting announcement. Finalists will appear as team-name boxes instead of large cards.
             </p>
           </TabsContent>
 
