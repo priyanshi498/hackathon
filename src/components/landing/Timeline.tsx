@@ -72,13 +72,13 @@ function StatusBadge({ status }: { status: Status }) {
 
 export function Timeline() {
   return (
-    <section id="timeline" className="relative py-24 sm:py-32">
+    <section id="timeline" className="relative py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
+        <div className="mb-12 text-center sm:mb-16">
           <div className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-primary">
             [ THE_ORBIT ]
           </div>
-          <h2 className="font-mono text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          <h2 className="font-mono text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
             From Launchpad to Landing
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground">
@@ -88,7 +88,7 @@ export function Timeline() {
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-transparent via-primary/40 to-transparent md:left-1/2" />
+          <div className="absolute left-3 top-0 h-full w-px bg-linear-to-b from-transparent via-primary/40 to-transparent md:left-1/2" />
 
           <div className="space-y-12">
             {MILESTONES.map((m, idx) => {
@@ -103,7 +103,7 @@ export function Timeline() {
                   className="relative md:grid md:grid-cols-2 md:gap-12"
                 >
                   {/* Node */}
-                  <div className="absolute left-4 top-3 -translate-x-1/2 md:left-1/2">
+                  <div className="absolute left-3 top-3 -translate-x-1/2 md:left-1/2">
                     <div className="relative flex h-4 w-4 items-center justify-center">
                       <span className="absolute h-4 w-4 rounded-full bg-primary/30 animate-ping" />
                       <span className="h-3 w-3 rounded-full bg-primary shadow-glow" />
@@ -112,19 +112,19 @@ export function Timeline() {
 
                   <div className={alignRight ? "md:col-start-2" : ""}>
                     <div
-                      className={`ml-10 rounded-xl border border-border/60 bg-card/60 p-6 backdrop-blur transition-colors hover:border-primary/40 md:ml-0 ${
+                      className={`ml-7 rounded-xl border border-border/60 bg-card/60 p-4 backdrop-blur transition-colors hover:border-primary/40 sm:ml-10 sm:p-6 md:ml-0 ${
                         alignRight ? "md:ml-8" : "md:mr-8 md:text-right"
                       }`}
                     >
                       <div
-                        className={`flex items-center gap-2 ${alignRight ? "" : "md:justify-end"}`}
+                        className={`flex flex-wrap items-center gap-2 ${alignRight ? "" : "md:justify-end"}`}
                       >
                         <StatusIcon status={m.status} />
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:tracking-widest">
                           {m.code} · {m.date}
                         </span>
                       </div>
-                      <h3 className="mt-3 font-mono text-xl font-bold text-foreground">
+                      <h3 className="mt-3 font-mono text-lg font-bold text-foreground sm:text-xl">
                         {m.title}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

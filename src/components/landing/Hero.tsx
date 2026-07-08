@@ -7,7 +7,7 @@ export function Hero() {
   const letters = Array.from(title);
 
   return (
-    <section id="top" className="relative isolate overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32">
+    <section id="top" className="relative isolate overflow-hidden pt-24 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-32">
       {/* Background layers */}
       <div className="absolute inset-0 -z-10 bg-hero-gradient" />
       <div className="absolute inset-0 -z-10 grid-bg opacity-40" />
@@ -15,7 +15,7 @@ export function Hero() {
 
       {/* Orbit rings */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2">
-        {[420, 600, 820, 1040].map((size, i) => (
+        {[280, 420, 600, 820].map((size, i) => (
           <motion.div
             key={size}
             initial={{ rotate: 0, opacity: 0 }}
@@ -24,7 +24,7 @@ export function Hero() {
               rotate: { duration: 40 + i * 12, repeat: Infinity, ease: "linear" },
               opacity: { duration: 1.2, delay: i * 0.15 },
             }}
-            className="absolute rounded-full border border-primary/20"
+            className={`absolute rounded-full border border-primary/20 ${i > 1 ? "hidden sm:block" : ""}`}
             style={{
               width: size,
               height: size,
@@ -51,7 +51,7 @@ export function Hero() {
           Edition 01 · 27 Jul → 29 Aug
         </motion.div>
 
-        <h1 className="text-center font-mono text-5xl font-extrabold leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
+        <h1 className="text-center font-mono text-[2.5rem] font-extrabold leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
           <span className="block">
             {letters.map((ch, i) => (
               <motion.span
@@ -80,7 +80,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          className="mx-auto mt-8 max-w-2xl text-center font-mono text-sm uppercase tracking-[0.3em] text-muted-foreground"
+          className="mx-auto mt-6 max-w-2xl px-2 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground sm:mt-8 sm:text-sm sm:tracking-[0.3em]"
         >
           {"// tagline coming soon — add yours here"}
         </motion.p>
@@ -89,9 +89,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.35 }}
-          className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row"
         >
-          <Button asChild size="lg" className="font-mono text-xs uppercase tracking-wider shadow-glow">
+          <Button asChild size="lg" className="w-full max-w-xs font-mono text-xs uppercase tracking-wider shadow-glow sm:w-auto sm:max-w-none">
             <a href="#register">
               Register Now <ArrowRight className="ml-2 h-4 w-4" />
             </a>
@@ -100,7 +100,7 @@ export function Hero() {
             asChild
             size="lg"
             variant="outline"
-            className="border-primary/40 bg-transparent font-mono text-xs uppercase tracking-wider text-foreground hover:bg-primary/10"
+            className="w-full max-w-xs border-primary/40 bg-transparent font-mono text-xs uppercase tracking-wider text-foreground hover:bg-primary/10 sm:w-auto sm:max-w-none"
           >
             <a href="#timeline">
               <Calendar className="mr-2 h-4 w-4" /> View Timeline
@@ -112,7 +112,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.5 }}
-          className="mx-auto mt-16 grid max-w-3xl grid-cols-3 divide-x divide-border/40 rounded-xl border border-border/40 bg-card/40 backdrop-blur"
+          className="mx-auto mt-12 grid w-full max-w-3xl grid-cols-1 divide-y divide-border/40 rounded-xl border border-border/40 bg-card/40 backdrop-blur sm:mt-16 sm:grid-cols-3 sm:divide-x sm:divide-y-0"
         >
           {[
             { k: "Rounds", v: "03" },

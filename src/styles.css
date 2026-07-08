@@ -100,12 +100,21 @@
   * {
     border-color: var(--color-border);
   }
+  html, body, #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
   html, body {
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
   body {
+    margin: 0;
     font-family: var(--font-sans);
+  }
+  img, svg, video, canvas {
+    max-width: 100%;
   }
   .font-mono {
     font-family: var(--font-mono);

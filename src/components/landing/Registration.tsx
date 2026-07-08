@@ -88,7 +88,7 @@ export function Registration() {
   };
 
   return (
-    <section id="register" className="relative border-t border-border/40 py-24">
+    <section id="register" className="relative border-t border-border/40 py-20 sm:py-24">
       <div className="absolute inset-0 -z-10 bg-grid opacity-30" />
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
@@ -103,13 +103,13 @@ export function Registration() {
           </p>
         </div>
 
-        <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card/40 p-6 shadow-glow backdrop-blur sm:p-10">
+        <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card/40 p-4 shadow-glow backdrop-blur sm:p-10">
           {status === "success" ? (
             <div className="flex flex-col items-center py-10 text-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/15 ring-1 ring-primary/40">
                 <CheckCircle2 className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="mt-5 font-mono text-2xl font-bold tracking-tight text-foreground">
+              <h3 className="mt-5 font-mono text-xl font-bold tracking-tight text-foreground sm:text-2xl">
                 You're in orbit, {values.fullName.split(" ")[0]}!
               </h3>
               <p className="mt-2 max-w-md text-sm text-muted-foreground">
@@ -127,7 +127,7 @@ export function Registration() {
               </Button>
             </div>
           ) : (
-            <form onSubmit={onSubmit} noValidate className="grid gap-5 sm:grid-cols-2">
+            <form onSubmit={onSubmit} noValidate className="grid gap-4 sm:grid-cols-2 sm:gap-5">
               <Field
                 label="Full name"
                 error={errors.fullName}

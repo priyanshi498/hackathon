@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer id="sponsors" className="border-t border-border/40 bg-background/80">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+        <div className="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:items-center md:text-left">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-md bg-primary/10 ring-1 ring-primary/40">
               <Rocket className="h-4 w-4 text-primary" />
@@ -17,7 +17,7 @@ export function Footer() {
             </div>
           </div>
 
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wider text-muted-foreground md:justify-start">
             <a href="#about" className="hover:text-primary">About</a>
             <a href="#timeline" className="hover:text-primary">Timeline</a>
             <a href="#results" className="hover:text-primary">Results</a>
@@ -39,7 +39,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-2 border-t border-border/40 pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
+        <div className="mt-10 flex flex-col items-center justify-between gap-2 border-t border-border/40 pt-6 text-center text-xs text-muted-foreground md:flex-row md:items-center md:text-left">
           <span>© {new Date().getFullYear()} NexTerra Orbit Hackathon. All rights reserved.</span>
           <span className="font-mono uppercase tracking-widest">Powered by NexTerra</span>
         </div>

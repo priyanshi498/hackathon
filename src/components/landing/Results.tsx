@@ -15,7 +15,7 @@ function PodiumGrid({ announceDate }: { announceDate: string }) {
       {PODIUM.map((p, i) => (
         <Card
           key={p.place}
-          className={`relative overflow-hidden border-border/60 bg-card/60 p-6 backdrop-blur ${
+          className={`relative overflow-hidden border-border/60 bg-card/60 p-4 backdrop-blur sm:p-6 ${
             i === 0 ? "sm:-translate-y-2 sm:border-primary/40" : ""
           }`}
         >
@@ -38,7 +38,7 @@ function PodiumGrid({ announceDate }: { announceDate: string }) {
 
 export function Results() {
   return (
-    <section id="results" className="relative py-24 sm:py-32">
+    <section id="results" className="relative py-20 sm:py-28 lg:py-32">
       <div className="absolute inset-0 -z-10 grid-bg opacity-20" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -51,7 +51,7 @@ export function Results() {
           <div className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-primary">
             [ RESULTS_FEED ]
           </div>
-          <h2 className="font-mono text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          <h2 className="font-mono text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
             Results &amp; Announcements
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground">
@@ -60,20 +60,20 @@ export function Results() {
         </motion.div>
 
         <Tabs defaultValue="r1" className="w-full">
-          <TabsList className="mx-auto mb-10 grid w-full max-w-md grid-cols-3 bg-card/60 backdrop-blur">
-            <TabsTrigger value="r1" className="font-mono text-xs uppercase tracking-wider">
+          <TabsList className="mx-auto mb-8 grid h-auto w-full max-w-md grid-cols-3 gap-1 bg-card/60 p-1 backdrop-blur sm:mb-10">
+            <TabsTrigger value="r1" className="px-2 py-2 font-mono text-[10px] uppercase tracking-[0.15em] sm:text-xs sm:tracking-wider">
               Round 1
             </TabsTrigger>
-            <TabsTrigger value="r2" className="font-mono text-xs uppercase tracking-wider">
+            <TabsTrigger value="r2" className="px-2 py-2 font-mono text-[10px] uppercase tracking-[0.15em] sm:text-xs sm:tracking-wider">
               Round 2
             </TabsTrigger>
-            <TabsTrigger value="final" className="font-mono text-xs uppercase tracking-wider">
+            <TabsTrigger value="final" className="px-2 py-2 font-mono text-[10px] uppercase tracking-[0.15em] sm:text-xs sm:tracking-wider">
               Finals
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="r1">
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-6 flex flex-col items-start justify-between gap-1.5 sm:flex-row sm:items-center">
               <h3 className="font-mono text-lg font-bold text-foreground">Round 1 · Shortlist</h3>
               <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                 Announces 8 Aug
@@ -86,7 +86,7 @@ export function Results() {
           </TabsContent>
 
           <TabsContent value="r2">
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-6 flex flex-col items-start justify-between gap-1.5 sm:flex-row sm:items-center">
               <h3 className="font-mono text-lg font-bold text-foreground">Round 2 · Finalists</h3>
               <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                 Announces 20 Aug
@@ -99,7 +99,7 @@ export function Results() {
           </TabsContent>
 
           <TabsContent value="final">
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-6 flex flex-col items-start justify-between gap-1.5 sm:flex-row sm:items-center">
               <h3 className="font-mono text-lg font-bold text-foreground">Finals · Champions</h3>
               <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                 Announces 29 Aug
